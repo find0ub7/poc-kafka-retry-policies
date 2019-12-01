@@ -1,0 +1,13 @@
+management.endpoints.web.exposure.include: "*"
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      poc-find0ub7-kafka
+    fixed-backoff-always-retry-policy:
+      consumer:
+        bootstrap-servers: ${spring.kafka.bootstrap-servers}
+        group-id: fixed-backoff-always-retry-policy-group-id
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
